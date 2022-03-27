@@ -1,4 +1,4 @@
-package cloud.autotests.config;
+package vivid.config;
 
 import org.aeonbits.owner.Config;
 

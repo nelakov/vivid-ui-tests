@@ -1,6 +1,6 @@
-package cloud.autotests.helpers;
+package vivid.helpers;
 
-import cloud.autotests.config.Project;
+import vivid.config.Project;
 import com.codeborne.selenide.Configuration;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;

@@ -1,4 +1,4 @@
-package cloud.autotests.config.demowebshop;
+package vivid.config.demowebshop;
 
 import org.aeonbits.owner.Config;
 

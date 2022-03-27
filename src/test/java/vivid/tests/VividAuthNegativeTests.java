@@ -1,4 +1,4 @@
-package cloud.autotests.tests;
+package vivid.tests;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,4 +1,4 @@
-package cloud.autotests.helpers;
+package vivid.helpers;
 
 import io.qameta.allure.restassured.AllureRestAssured;
 

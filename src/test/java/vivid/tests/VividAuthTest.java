@@ -1,6 +1,6 @@
-package cloud.autotests.tests;
+package vivid.tests;
 
-import cloud.autotests.helpers.DriverUtils;
+import vivid.helpers.DriverUtils;
 import com.github.javafaker.Faker;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
