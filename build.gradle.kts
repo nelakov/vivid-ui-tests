@@ -11,7 +11,7 @@ repositories {
 
 val allureVersion = "2.35.2"
 val selenideVersion = "7.16.2"
-val junitVersion = "5.14.4"
+val junitVersion = "6.1.0"
 
 java {
     toolchain {
@@ -41,7 +41,7 @@ dependencies {
     testImplementation("org.assertj:assertj-core:3.27.7")
     testImplementation("org.junit.jupiter:junit-jupiter-api:$junitVersion")
     testImplementation("org.junit.jupiter:junit-jupiter-params:$junitVersion")
-    testImplementation("net.datafaker:datafaker:2.5.4")
+    testImplementation("net.datafaker:datafaker:2.7.0")
 
     testRuntimeOnly("org.slf4j:slf4j-simple:2.0.18")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:$junitVersion")
