@@ -1,7 +1,7 @@
-<h1 align="center">🚀 Vivid Money — UI Test Automation</h1>
+<h1 align="center">Vivid Money UI Tests</h1>
 
 <p align="center">
-  <i>Production-style end-to-end UI autotests for the Vivid Money web app — fast, parallel, and beautifully reported.</i>
+  <i>End-to-end UI tests for the Vivid Money web app.</i>
 </p>
 
 <p align="center">
@@ -13,31 +13,11 @@
   <img src="https://img.shields.io/badge/Selenoid-Docker%20grid-2496ED?logo=docker&logoColor=white" alt="Selenoid">
 </p>
 
-## :sparkles: Overview
+## Overview
 
-A compact but production-grade UI test-automation suite that drives the live **Vivid Money** web app end-to-end. Built on the **Page Object Model**, it runs locally with a single command or at scale on a remote **Selenoid** Docker grid, executes tests in **parallel**, and turns every run into a rich **Allure** report — screenshots, page source, browser console logs, and full session **video** attached to each test. Continuous integration runs on **Jenkins**, with results delivered straight to **Telegram**.
+UI tests that drive the live **Vivid Money** web app end-to-end, built on the Page Object Model. They run locally with one command or on a remote **Selenoid** Docker grid, run in parallel, and produce an **Allure** report with screenshots, page source, browser console logs, and a session video on each test. CI runs on **Jenkins** and posts the results to **Telegram**.
 
-> **Why it's worth a look** — clean Page Object Model architecture · parallel JUnit 5 execution · local _or_ remote (Selenoid) runs from the same code · settings overridable by `-D` flags · Allure reporting with video, logs & screenshots · CI and chat notifications wired end-to-end.
-
-## :page_with_curl:    Content
-
-> :heavy_check_mark: [Covered functionality](#earth_africa-covered-functionality)
->
-> :heavy_check_mark: [Technology stack](#classical_building-technology-stack)
->
-> :heavy_check_mark: [Running tests from the terminal](#running-tests-from-the-terminal)
->
-> :heavy_check_mark: [Running Tests in Jenkins](#robot-remote-test-running)
->
-> :heavy_check_mark: [Test results report in Allure Report](#skier-main-page-of-allure-report)
->
-> :heavy_check_mark: [Telegram notifications using a bot](#-telegram-notifications-using-a-bot)
->
-> :heavy_check_mark: [An example of running a test in Selenoid](#-an-example-of-running-a-test-in-selenoid)
-
-## :technologist: Covered functionality
-
-> UI autotests developed <code>UI</code>.
+## Covered functionality
 
 ### UI
 
@@ -51,7 +31,7 @@ A compact but production-grade UI test-automation suite that drives the live **V
 - [x] Negative tests for validation input field
 - [x] No errors in page console log
 
-## :classical_building: Technology stack
+## Technology stack
 
 <p align="center">
 <img width="6%" title="IntelliJ IDEA" src="images/logo/Intelij_IDEA.svg">
@@ -72,7 +52,7 @@ A compact but production-grade UI test-automation suite that drives the live **V
 
 > <code>Selenide</code> drives the UI · <code>Selenoid</code> runs browsers in <code>Docker</code> · <code>Allure</code> reports each run · <code>Gradle</code> (Kotlin DSL) builds · <code>JUnit 5</code> is the test engine · <code>Jenkins</code> runs CI · <code>Telegram</code> delivers the result.
 
-### :package: Key versions
+### Key versions
 
 | Tool | Version |
 |------|---------|
@@ -86,7 +66,7 @@ A compact but production-grade UI test-automation suite that drives the live **V
 | AspectJ weaver | 1.9.25.1 |
 | slf4j-simple | 2.0.18 |
 
-### :file_folder: Project layout
+### Project layout
 
 ```
 src/test/java/vivid/
@@ -99,17 +79,17 @@ docker-compose.yml · selenoid/browsers.json             # local Selenoid grid
 build.gradle.kts                                         # Gradle Kotlin DSL
 ```
 
-UI interaction lives in the page objects; tests orchestrate them through fluent chains. Configuration uses no third-party library — a missing key resolves to `""`, and `baseUrl` fails fast if left unset.
+UI interaction lives in the page objects; tests drive them through fluent chains. Configuration uses no third-party library: a missing key resolves to `""`, and `baseUrl` fails fast if left unset.
 
 ## Running tests from the terminal
 
-### :wrench: Prerequisites
+### Prerequisites
 
-> <code>JDK 25</code> — the build targets Java 25 via Gradle toolchains.
+> <code>JDK 25</code>. The build targets Java 25 via Gradle toolchains.
 >
-> No local Gradle install required — the project ships a Gradle wrapper (`./gradlew`).
+> No local Gradle install required; the project ships a Gradle wrapper (`./gradlew`).
 
-### :robot: Running Tests Locally
+### Running Tests Locally
 
 ```bash
 ./gradlew clean test                       # run all tests
@@ -122,14 +102,14 @@ are read from JVM system properties (`-Dkey=value`), with an optional classpath 
 `config/<profile>.properties` selected via `-Dproperties=<profile>`. A local run needs at least
 the application URL, e.g. `./gradlew clean test -DbaseUrl=https://vivid.money/en-eu/ -Dbrowser=chrome`.
 
-### :bar_chart: Viewing the Allure report locally
+### Viewing the Allure report locally
 
 ```bash
 ./gradlew allureServe     # build and open the report in a browser
 ./gradlew allureReport    # generate a static report into build/reports/allure-report
 ```
 
-### :whale: Running against a local Selenoid grid
+### Running against a local Selenoid grid
 
 ```bash
 docker compose up -d                       # start Selenoid + Selenoid UI
@@ -137,11 +117,11 @@ docker pull selenoid/vnc_chrome:128.0      # pull the browser image (one-time)
 ./gradlew clean test -Dproperties=remote   # run the suite against the grid
 ```
 
-> Selenoid UI — http://localhost:8080 · grid — http://localhost:4444/wd/hub · recorded videos — `selenoid/video/`
+> Selenoid UI: http://localhost:8080 · grid: http://localhost:4444/wd/hub · recorded videos: `selenoid/video/`
 >
 > Profile lives in `src/test/resources/config/remote.properties` (copy from `remote.properties.example`); browser images/versions in `selenoid/browsers.json`. Keep the version in `remote.properties` (`browserVersion`) in sync with the image you pull.
 
-### :robot: Remote test running
+### Remote test running
 
 ## <img src="images/logo/Jenkins.svg" width="25" height="25"  alt="Jenkins"/></a> Jenkins <a target="_blank" href="https://jenkins.autotests.cloud/job/demo-project-for-vivid/"> job </a>
 
@@ -156,7 +136,7 @@ test
 -Dthreads=${THREADS}
 ```
 
-### :robot: New remote test running
+### New remote test running
 
 ```
 clean
@@ -164,7 +144,7 @@ test
 -Dproperties=remote
 ```
 
-### :robot: Build Options
+### Build Options
 
 > <code>REMOTE_URL</code> – the address of the remote server where the tests will run.
 >
@@ -174,19 +154,19 @@ test
 >
 > <code>BROWSER_SIZE</code> – the size of the browser window the tests will be run (_default - <code>1920x1080</code>_).
 
-### :pushpin: Main page of <a target="_blank" href="https://jenkins.autotests.cloud/job/demo-project-for-vivid/8/allure/">Allure-report</a>
+### Main page of <a target="_blank" href="https://jenkins.autotests.cloud/job/demo-project-for-vivid/8/allure/">Allure-report</a>
 
 <p align="center">
 <img title="Allure Overview" src="images/screens/allure_overview.png">
 </p>
 
-### :pushpin: Grouping tests by tested functionality
+### Grouping tests by tested functionality
 
 <p align="center">
 <img title="Allure Behaviors" src="images/screens/allure_behaviors.png">
 </p>
 
-### :pushpin: Main dashboard
+### Main dashboard
 
 <p align="center">
 <img title="Allure Overview Dashboard" src="images/screens/allure_overview_dashboard.png">
@@ -194,19 +174,19 @@ test
 
 ## <img width="6%" title="Allure TestOps" src="images/logo/AllureTestOps.png"> Integration with Allure Test Ops
 
-### :pushpin: Launches
+### Launches
 
 <p align="center">
 <img title="Allure Overview Dashboard" src="images/screens/launches.png">
 </p>
 
-### :pushpin: Custom dashboard
+### Custom dashboard
 
 <p align="center">
 <img title="Allure Overview Dashboard" src="images/screens/dashboard.png">
 </p>
 
-### :pushpin: Test cases 
+### Test cases 
 
 <p align="center">
 <img title="Allure Overview Dashboard" src="images/screens/allure_test_cases.png">
