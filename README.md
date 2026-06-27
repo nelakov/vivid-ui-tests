@@ -38,7 +38,7 @@ UI tests that drive the live **Vivid Money** web app end-to-end, built on the Pa
 <img width="6%" title="Java" src="images/logo/Java.svg">
 <img width="6%" title="Selenide" src="images/logo/Selenide.svg">
 <img width="6%" title="Selenoid" src="images/logo/Selenoid.svg">
-<img width="6%" title="Allure Report"src="images/logo/Allure_Report.svg">
+<img width="6%" title="Allure Report" src="images/logo/Allure_Report.svg">
 <img width="6%" title="Allure TestOps" src="images/logo/AllureTestOps.png">
 <img width="6%" title="Jira" src="images/logo/Jira.png">
 
@@ -121,9 +121,7 @@ docker pull selenoid/vnc_chrome:128.0      # pull the browser image (one-time)
 >
 > Profile lives in `src/test/resources/config/remote.properties` (copy from `remote.properties.example`); browser images/versions in `selenoid/browsers.json`. Keep the version in `remote.properties` (`browserVersion`) in sync with the image you pull.
 
-### Remote test running
-
-## <img src="images/logo/Jenkins.svg" width="25" height="25"  alt="Jenkins"/></a> Jenkins <a target="_blank" href="https://jenkins.autotests.cloud/job/demo-project-for-vivid/"> job </a>
+## Jenkins <a target="_blank" href="https://jenkins.autotests.cloud/job/demo-project-for-vivid/"><img src="images/logo/Jenkins.svg" width="25" height="25" alt="Jenkins"/> job</a>
 
 ```
 clean
@@ -146,7 +144,7 @@ test
 
 ### Build Options
 
-> <code>REMOTE_URL</code> – the address of the remote server where the tests will run.
+> <code>REMOTE_DRIVER_URL</code> – the address of the remote server where the tests will run.
 >
 > <code>BROWSER</code> – the browser the tests will be run (_default - <code>chrome</code>_).
 >
@@ -193,7 +191,7 @@ test
 </p>
 
 ## <img width="6%" title="Jira" src="images/logo/Jira.png"> Integration with Jira
-> Also you can setting export your information to Jira about launches and test cases
+> You can also export launch and test-case information to Jira.
 
 <p align="center">
 <img title="Allure Overview Dashboard" src="images/screens/Jira.png">
@@ -209,7 +207,7 @@ test
 
 ## <img width="4%" title="Selenoid" src="images/logo/Selenoid.svg"> An example of running a test in Selenoid
 
-> A video is attached to each test in the report. Two of these videos is shown below.
+> A video is attached to each test in the report. Two of these videos are shown below.
 
 ```Positive test```
 <p align="center">
